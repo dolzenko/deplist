@@ -35,7 +35,7 @@ func findDeps(soFar map[string]bool, name string) error {
 	for _, imp := range pkg.Imports {
 		if !soFar[imp] {
 			if err := findDeps(soFar, imp); err != nil {
-				return err
+				log.Println(err)
 			}
 		}
 	}
